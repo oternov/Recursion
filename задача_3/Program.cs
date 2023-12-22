@@ -4,14 +4,16 @@
 
 int[] array = new int[6];
 
-void PrintArray()
+void PrintArray(int[] arr, int count)
 {
-    for (int i = 0; i < array.Length; i++)
+    if (count == arr.Length)
     {
-        array[i] = new Random().Next(1,10);
-        Console.Write(array[i] + " ");
+        return;
     }
-}
+    array[count] = new Random().Next(1,10);
+    Console.Write(arr[count] + " ");
+    PrintArray(arr, count + 1);
+ }
 
 void ReverseArray(int[] arr, int count)
 {
@@ -23,6 +25,6 @@ void ReverseArray(int[] arr, int count)
     ReverseArray(arr, count + 1);
 }
 
-PrintArray();
+PrintArray(array, 0);
 Console.WriteLine();
 ReverseArray(array, 0);
